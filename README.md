@@ -93,6 +93,14 @@ Multiple value example:
         cookies = cookies.next
     end while
 
+## Other Notes
+
+* Since this library relies on the roUrlTransfer object behind the scenes, it can only be used from a Task node.
+
+* It is designed for the most common use case where tasks are created, do some work, return results, and then 
+go out of scope. If your tasks are long-lived and service multiple requests, they likely already have their own 
+message port and a different pattern is recommended (though you can 'split' the Fetch implementation into the 
+request-sending portion and the response-handling portion and hook into your existing message port)
 
 [Fetch]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch]
 [roUrlEvent]: https://sdkdocs.roku.com/display/sdkdoc/roUrlEvent
