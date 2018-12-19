@@ -49,7 +49,7 @@ function fetch(options)
         msg = wait(timeout, port)
         status = -999
         body = "(TIMEOUT)"
-        headers = []
+        headers = {}
         if (type(msg) = "roUrlEvent")
             status = msg.GetResponseCode()
             headersArray = msg.GetResponseHeadersArray()
